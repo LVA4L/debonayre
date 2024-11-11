@@ -1,0 +1,174 @@
+.contactoh1{
+    top: 100px;
+    color: rgb(146, 119, 0);
+    margin-top: 23vh;
+}
+
+.legend {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  background-color: rgb(0, 0, 100);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 200;
+}
+
+.fieldset {
+  background-color: rgb(85, 85, 177);
+  border-radius: 20px;
+  border: 0px;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  /* background-color: rgb(17, 0, 255);  */
+
+}
+
+.inputbox{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;  
+  align-items: center;
+  width: auto;
+  height: 60px;
+  /* background-color: red; */
+  /* border: 1px solid; */
+  padding: 10px;
+
+  label{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+  }
+
+  input{
+    background-color: rgb(159, 228, 255);
+    border: black solid 2px;
+    padding: 5px;
+    border-radius: 30px;
+    width: 300px;
+  }
+
+input:nth-child(n+4){
+  width: 30px;
+  gap: 5px;
+}
+
+}
+
+.optionbox{
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+  border: 2px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  flex-direction: column;
+  
+  label{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.buttonbox {
+  width: 100%;
+  position: relative;
+  bottom: 10px;
+  padding: 20px 0px;
+  bottom: 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.formbutton{
+  background-color: rgb(0, 4, 255);
+  width: 100px;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.formbutton:hover{
+  background-color: rgb(25, 29, 255);
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.formbutton:active{
+  background-color: rgb(4, 0, 66);
+  transform: scale(0.95);
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .fieldset {
+    width: 90%;
+    background-color: rgb(85, 85, 177);
+    border-radius: 20px;
+    border: 0px;
+}
+
+.legend {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  background-color: rgb(0, 0, 100);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 200;
+}
+
+.inputbox{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: space-around;  
+  align-items: center;
+  width: auto;
+  height: 60px;
+  /* background-color: red; */
+  /* border: 1px solid; */
+  padding: 10px;
+
+  label{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  input{
+    background-color: rgb(159, 228, 255);
+    border: black solid 2px;
+    padding: 5px;
+    border-radius: 30px;
+    width: 400px;
+    height: 80px;
+  }
+
+input:nth-child(n+4){
+  width: 30px;
+  gap: 5px;
+}
+}
+}

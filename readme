@@ -1,0 +1,84 @@
+DEBONAYRE - Mascotas y otras criaturas de 2, 4 o mas patas. 
+
+Sitio dedicado al comercio de insumos y asistencia para mascotas y animales de campo.
+También criamos carpinchos.
+
+Proyecto integrador creado para Talento Tech
+
+Desarrollado por DG. Mauro L. Argañaraz
+
+----------0.1.0----------
+
+12-09-24
+
+-Creada imagen corporativa de Pampa Argentina - Mascotas y Campo
+-Creado index.html
+-Creada Estructura basica Header, body y footer
+
+----------0.1.1----------
+
+19-09-24
+
+-Desarrollado contenido de home para index.html
+-Creada pagina servicios.html
+-Creada pagina nosotros.html
+-Creada pagina contacto.html
+-Creada pagina productos.html
+-Se añadieron hipervinculos para navegar a traves de home.
+-Se añadio barra de navegacion para navegar por la pagina principal, y a traves de otras paginas.
+-Se añadieron sections para cada tematica de la pagina
+-Se añadieron imagenes, cajas de video y mapas
+
+----------0.1.2----------
+
+26-09-24
+
+-Creada contenido en contacto.html
+-Creado formulario de contacto con opciones para motivos de contacto.
+
+----------0.2.1----------
+
+03-09-24
+
+-Añadido estilizado por CSS
+-Creada Navbar.css
+-Creado Styles.css
+
+----------0.3.2----------
+
+10-09-24
+
+-Añadido Fondo en Main y paginas adyacentes
+-Añadidas Fuentes personalizadas en textos e hipervinculos
+-Añadidos colores personalizados en textos e hipervinculos
+
+----------0.4.3----------
+
+17-09-24
+
+-Cambio de imagen corporativa a "Debonayre". 
+-Añadidas cajas y márgenes para contenido.
+-Optimizado de algunas lineas de codigo para agrupar y sectorizar etiquetas.
+-Se crearon boxes para insersion de productos en "productos.html".
+-Se creó estructura provisoria para sitios en construcción que no contienen la información final.
+-Se mejoraron los estilos de la Navbar.
+-Se crearon nuevos errores para corregirlos mas adelante.
+
+----------0.5.4----------
+
+24-09-24
+
+-Retrabajado navbar para que responda a lineas Flexbox.
+-Creada página reseñas.html.
+-Se implementó el uso de Flex en productos.html, ahora las tarjetas de producto son responsivas.
+-Se implementó el uso de Grid y Flex en reseñas.html.
+-Se creó un formulario de reseña en reseñas.html.
+-Se realizaron ajustes estéticos en todas las páginas.
+
+----------0.6.4----------
+
+31-09-24
+
+-Retrabajada la pagina de reseña para que ahora las tarjetas se generen a partir de un form.
+-Añadidas Media Queries para que las grillas de reseñas sean responsivas.
+-Creada pagina santuario.html y añadida información al respecto en el index.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas - Debonayre®</title>
+    <link rel="icon" href="../icon.svg">
+    <link rel="stylesheet" href="../Scripts/navbar.css">
+    <link rel="stylesheet" href="../Scripts/styles.css">
+    <link rel="stylesheet" href="../Scripts/products.css">
+    <link rel="stylesheet" href="../Scripts/reviews.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+
+            <nav>
+    
+            <div class="logocontainer">              
+                    <a href="../index.html" class="alogo">
+                    <picture>
+                        <source srcset="../assets/images/logosinglew.svg" media="(max-width: 768px)"> 
+                        <img src="../Assets/images/logow.svg" alt="Debonayre®" class="logonav">
+                    </picture>
+                    </a>
+            </div>
+            
+            <div class="ulcontainer">
+                <ul>   
+                    <li><a href="./notnow.html" class="anav"target="_blank">NOSOTROS</a></li>
+                    <li><a href="./productos.html"class="anav" target="_blank">PRODUCTOS</a></li>
+                    <li><a href="./notnow.html"class="anav" target="_blank">SERVICIOS</a></li>
+                    <li><a href="./reseñas.html"class="anav" >RESEÑAS</a></li>
+                    <li><a href="./contacto.html"class="anav" target="_blank">CONTACTO</a></li>
+                </ul>
+    
+            </div>
+        
+            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    
+            </nav>
+    
+        </div>
+    </header>
+
+    <main class="reviewcontainergeneral">
+
+        <h1>QUEJAS Y HALAGOS<br>(en ese orden)</h1>
+        <h2 class="h2title">Verdades a medias y opiniones sinceras<br>de los que no mordieron (todavia).</h2>
+        
+
+    <!-- <div class="grid-container"> -->
+        
+        <div id="addcard" class="grid-container"> 
+        <!-- el js indica que en este div generará las declaraciones .card .stars .h2 .img -->
+        <!-- Generador de reviews -->
+        </div>
+
+    <!-- </div> -->
+
+        <div class="form-container">
+
+            <form id="reviewForm">
+                <label>Nombre:</label><br>
+                <input type="text" id="name" placeholder="Tu Nombre" required><br>
+                <label>Foto de tu mascota (obligatorio)*:</label><br>
+                <input type="file" id="photo" accept="image/*" required><br>
+                <label>Escribinos acerca de tu experiencia con Debonayre.</label><br>
+                <textarea id="reviewText" placeholder="Tu Reseña" maxlength="180" required></textarea><br>
+                <label>Con cuanto nos calificarías?</label><br>
+                <select id="rating" required>
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                </select><br>
+                <button type="submit">Enviar Reseña**</button>
+            </form>
+
+            <p>*Al enviar la reseña, usted acepta que la foto de su mascota será utilizada en videos de TikTok con fines comerciales.</p>
+            <p>**Completar estos campos habilita a la creacion de las cards de reviews necesarias para el trabajo integrador segun especificado en Clase 7.<br>
+            Las reseñas también aparecerán en la página principal, asegurate de generar varias reseñas para poder visualizar el carrusel.</p>  
+
+        </div>
+      
+        <script src="../Scripts/reviews.js"></script>
+
+    </main>
+    <footer>
+        <p>Copyright Debonayre derechos reservados</p>
+        <a href="#" class="footerlink">Volver a Inicio</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,131 @@
+.reviewcontainergeneral {
+    /* background-color: rgb(255, 106, 106);  */
+    width: 70%;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+
+    h1{
+        color: rgb(146, 119, 0);
+    }
+
+}
+
+.h2title {
+   color: white;
+}
+
+.grid-container {
+    /* background-color: blue; linea solo para referir dimensiones */
+    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+
+    height: 600px;
+    overflow: scroll; 
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
+}
+    
+
+
+/* ============================== FORMULARIO ==============================  */
+
+
+.form-container {
+    width: 80%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #8ffff6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+
+}
+  
+label{
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+}
+
+input, textarea {
+    width: 80%;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+  
+button {
+    background-color: #0059ff;
+    color: white;
+    margin: 20px 0 20px 0;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: #218838;
+}
+
+
+
+/* ============================== TARJETAS DE REVIEWS ==============================  */
+  
+.card {
+    background: #d5d8ff;
+    margin: 10px;
+    width: 200px;
+    height: 300px;
+    /* max-width: 100px; */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    /* overflow: scroll; */
+}
+
+.card:hover {
+    background: #bcc0ff;
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(17, 0, 255, 0.6);
+}
+  
+.card img {
+    width: 100px;
+    height: 100px;
+    /* max-width: 100px; */
+    border-radius: 100%;
+}
+  
+.card .stars {
+    color: #004414;
+    font-size: 2.5rem;
+}
+  
+.card h2 {
+    margin: 3px 0 3px;
+    font-size: 2rem;
+}
+  
+.card p {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    margin: 3px 0;
+    text-align: center;
+}
