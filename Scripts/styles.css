@@ -34,7 +34,7 @@ h1 {
 
 h2{
     margin-top: 20px;
-    color:rgb(0, 80, 20);
+    color:rgb(216, 255, 144);
     font-family: "Jost", sans-serif;
     font-size: 3rem;
     text-align: center;
@@ -72,7 +72,7 @@ h2{
         /* background-color: red; - solo para medir dimensiones*/ 
         h2{
             margin-top: 20px;
-            color:rgb(0, 100, 25);
+            color:rgb(216, 255, 144);
             font-family: "Jost", sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -132,7 +132,7 @@ h2{
         /* background-color: red; - solo para medir dimensiones*/ 
         h2{
             margin-top: 20px;
-            color:rgb(0, 100, 25);
+            color:rgb(216, 255, 144);
             font-family: "Jost", sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -194,7 +194,7 @@ h2{
 
         h2 {
             margin-top: 20px;
-            color:rgb(0, 100, 25);
+            color:rgb(216, 255, 144);
             font-family: "Jost", sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -254,7 +254,7 @@ h2{
         /* background-color: red; - solo para medir dimensiones*/ 
         h2{
             margin-top: 20px;
-            color:rgb(0, 100, 25);
+            color:rgb(216, 255, 144);
             font-family: "Jost", sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -295,7 +295,7 @@ h2{
     justify-content: center;
     h2{
         margin-top: 20px;
-        color:rgb(0, 100, 25);
+        color:rgb(216, 255, 144);
         font-family: "Jost", sans-serif;
         font-size: 3rem;
         text-align: center;
@@ -337,6 +337,7 @@ h2{
 
 
 footer {
+
     background-color: rgb(103, 124, 214);
     margin: 0px;
     width: 100%;
@@ -398,10 +399,11 @@ footer {
   
   .card h2 {
     font-size: 1.2rem;
+    color: #010035;
   }
   
   .card .stars {
-    color: #004414;
+    color: #02005a;
     font-size: 1.5rem;
   }
   

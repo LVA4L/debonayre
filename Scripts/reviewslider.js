@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para cargar las reseñas desde localStorage y añadirlas al slider
+   
     function loadReviewsToSlider() {
       const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
       const sliderTrack = document.getElementById('slider-track');
@@ -17,6 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   
-    loadReviewsToSlider(); // Cargar las reseñas en el slider cuando la página cargue
+    loadReviewsToSlider(); 
   });
   
