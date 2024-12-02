@@ -74,3 +74,96 @@
         }
       }
 }
+
+
+/* 
+================================================
+==-------------POPUP PARA COMPRA--------------==
+================================================
+*/
+
+/* Fondo del popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Oscurece el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+}
+
+/* Contenido del popup */
+.popup-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar el popup */
+}
+
+/* Botón de cierre */
+.popup-content .close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Tabla de precios */
+.price-table {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.price-table p {
+    margin: 5px 0;
+}
+
+.price-table p strong {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Cantidad */
+.quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Fondo de la página desenfocado cuando el popup está activo */
+body.popup-active {
+    overflow: hidden; /* Evita el scroll de fondo */
+}
+
+body.popup-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece aún más el fondo */
+    backdrop-filter: blur(8px); /* Aplica el desenfoque */
+    z-index: 999; /* Detrás del popup pero encima del contenido */
+}
+

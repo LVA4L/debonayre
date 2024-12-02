@@ -82,3 +82,16 @@ Desarrollado por DG. Mauro L. Argañaraz
 -Retrabajada la pagina de reseña para que ahora las tarjetas se generen a partir de un form.
 -Añadidas Media Queries para que las grillas de reseñas sean responsivas.
 -Creada pagina santuario.html y añadida información al respecto en el index.
+
+----------0.7.0----------
+
+21-11-24
+
+-Implementacion de JS para que al santuario solo ingresen mayores de 18 años con una asociacion a Debonayre.
+
+----------0.8.0----------
+
+26-11-24
+
+-Mejoras en el sistema de compras para calculo de descuentos y precios con IVA.
+-Mejoras en el sistema de ingreso al Santuario. Ahora se requerirá ingresar mediante una llave obtenida al realizar el contacto con un representante de debonayre.

@@ -8,6 +8,7 @@
     padding: 20px 20px;
     background-color: #011342b3; 
     backdrop-filter: blur(10px);
+    z-index: 1;
 
     ul {
         padding-left: 300px;
@@ -60,6 +61,36 @@
     font-size: 2rem;
     cursor: pointer;
 }
+
+.menu {
+display: none;
+.ulmenu {
+    font-size: 2.5rem;
+    font-weight: 350;
+    font-family: "Roboto", sans-serif;
+    
+    margin: 20px;
+    border: 10px;
+    padding: 10px 15px;
+
+    a{
+    color: rgb(133, 121, 14);
+    text-decoration: none;
+    background-color: #010a20be; 
+    margin: 20px;
+    border: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    }
+
+    a:hover {
+        color: rgb(0, 0, 0);
+        background-color: rgb(133, 121, 14);
+        border-radius: 5px;
+    }
+
+}
+}  
 
 /* Media query */
 
@@ -115,6 +146,7 @@
         padding-right: 70px;
         font-size: 5rem;
         color: rgb(133, 121, 14);
+        z-index: 999;
     }
 
     .logonav {
@@ -124,5 +156,61 @@
         height: auto;
     }
 
-}
+    .menu {
+        display: flex;
+        position: fixed;
+        top: -500%; /* Fuera de la vista inicialmente (desde arriba) */
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background-color: #011342b3;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 50px;
+        transition: top 0.3s ease; /* Animación para el despliegue desde arriba */
+        z-index: 1000; /* Asegura que esté sobre el contenido */
 
+        .ulmenu{
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            top: 0px;
+            gap: 10px;
+            
+            li {
+             /* background-color: red; */
+             /* width: 80%; */
+             align-items: center; 
+            } 
+
+            a {
+            display: flex;
+            margin: 0px;
+            gap: 30px; 
+            justify-content: center;
+            }
+        }
+    }
+    
+    /* Cuando el menú está activo */
+    .menu.active {
+        display: flex; /* Cambia a display: flex para que se muestre */
+        position: fixed;
+        top: 119px; /* Ajusta la posición para que no se solape con el navbar */
+        left: 0;
+        width: 100%;
+        height: 500px; /* Ajusta la altura según el contenido */
+        background-color: #011342b3;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        flex-direction: column; /* Coloca los elementos uno debajo del otro */
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: top 0.3s ease; /* Animación para el despliegue */
+        z-index: 1000;
+    }
+}
