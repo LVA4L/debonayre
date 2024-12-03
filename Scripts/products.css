@@ -1,3 +1,10 @@
+.cart {
+    width: 40px;
+    height: auto;
+    /* background-color: red; solo para referencia de dimensiones*/ 
+}
+
+
 .contentproducts{
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +34,18 @@
     padding: 10px;
     align-items: center;
 
+    .productimage {
+        display: flex;
+        position: relative;
+        /* background-color: red;  */
+        width: 100%;
+        height: auto;
+        .image{
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+
     h3 {
         font-family: "Jost", sans-serif;
         text-align: center;
@@ -43,6 +62,14 @@
         font-size: 2.5rem;
         bottom: 0px;
     } */
+
+    .discountprice{
+        width: 100%;
+        border-radius: 10px;
+        background-color: rgb(194, 0, 0);
+        color: rgb(255, 255, 255);
+        font-size: 3rem;
+    }
 
     .buy{
         /* background-color: red; /solo para mirar dimensiones*/
@@ -105,34 +132,53 @@
     max-width: 600px;
     text-align: center;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra para destacar el popup */
+
+    h2 {
+       color: rgb(10, 87, 0);
+    }
+    
+    p {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+    }
+    .cart-message {
+        font-family: "Roboto", sans-serif;
+        font-size: 2rem;
+    }
 }
 
 /* Botón de cierre */
 .popup-content .close-popup {
     position: absolute;
     top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 20px;
+    right: 10px;    
     cursor: pointer;
+    font-size: 3rem;
+    color: white;
+    background-color: red;
+    border-radius: 50px;
+    border: 0px;
 }
 
 /* Tabla de precios */
 .price-table {
+    background-color: #e7e7e7;
     margin: 20px 0;
     text-align: center;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 .price-table p {
     margin: 5px 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    margin: 3px;
 }
 
 .price-table p strong {
     font-size: 18px;
-    color: #333;
+    color: #024600;
 }
 
 /* Cantidad */
@@ -145,6 +191,10 @@
 }
 
 .quantity button {
+    color: white;
+    background-color: rgb(0, 153, 255);
+    border: 0px;
+    border-radius: 20px;
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
@@ -167,3 +217,80 @@ body.popup-active::before {
     z-index: 999; /* Detrás del popup pero encima del contenido */
 }
 
+.buy-now {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 2rem;
+    padding: 5px;
+    background-color: rgb(0, 153, 255);
+    border: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.buy-now:hover {
+    color: white;
+    background-color: rgb(4, 0, 255);
+    border-radius: 20px;
+}
+
+.popup-content .slider img {
+    width: 100%; /* Imagen responsiva */
+    object-fit: contain; /* Ajuste de imagen dentro del contenedor */
+    border-radius: 10px;
+}
+
+
+/* 
+================================================
+==----------------QUERY POPUP-----------------==
+================================================
+*/
+
+@media (max-width: 768px) {
+    
+    .popup {
+        align-items: flex-start; /* Alinear el contenido al inicio */
+        padding-top: 20px; /* Espacio superior para evitar bloqueo */
+    }
+
+    .popup-content {
+        width: 90%; /* Reducir ancho para ajustarse al viewport */
+        max-width: none; /* Eliminar el límite de ancho fijo */
+        padding: 15px; /* Reducir el padding */
+        border-radius: 5px; /* Redondeo más pequeño */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Menor sombra */
+    }
+
+    .price-table {
+        font-size: 14px; /* Texto más pequeño */
+    }
+
+    .price-table p strong {
+        font-size: 16px; /* Ajustar tamaño de fuente */
+    }
+
+    .quantity {
+        flex-direction: column; /* Cambiar a columna */
+        gap: 5px; /* Reducir el espacio entre elementos */
+    }
+
+    .quantity button {
+        font-size: 14px; /* Reducir el tamaño de los botones */
+        padding: 5px 8px; /* Espaciado más pequeño */
+    }
+
+    .popup-content .close-popup {
+        font-size: 3rem;
+        color: white;
+        background-color: red;
+        border-radius: 50px;
+
+    }
+
+    .popup-content .slider img {
+        width: 100%; /* Imagen responsiva */
+        max-height: 200px; /* Altura máxima para evitar desbordes */
+        object-fit: contain; /* Ajuste de imagen dentro del contenedor */
+    }
+}

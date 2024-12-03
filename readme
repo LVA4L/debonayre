@@ -95,3 +95,11 @@ Desarrollado por DG. Mauro L. Argañaraz
 
 -Mejoras en el sistema de compras para calculo de descuentos y precios con IVA.
 -Mejoras en el sistema de ingreso al Santuario. Ahora se requerirá ingresar mediante una llave obtenida al realizar el contacto con un representante de debonayre.
+
+----------0.8.1----------
+
+03-12-24
+
+-Implementado el sistema de carrito en productos.html
+-El carrito ahora hará calculo de productos, con sus descuentos e impuestos, y realizará un calculo final de precio total. 
+-Se comenzó con el sistema de catalogo de productos asistido por hojas de calculo.

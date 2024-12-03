@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Scripts/navbar.css">
     <link rel="stylesheet" href="../Scripts/styles.css">
     <link rel="stylesheet" href="../Scripts/products.css">
+    <link rel="stylesheet" href="../Scripts/cart.css">
 </head>
 <body>
     <header>
@@ -33,6 +34,13 @@
                     <li><a href="./santuario.html"class="anav" target="_blank">SANTUARIO</a></li>
                     <li><a href="./reseñas.html"class="anav" target="_blank">RESEÑAS</a></li>
                     <li><a href="./contacto.html"class="anav" target="_blank">CONTACTO</a></li>
+                    <li>
+                        <a href="buysummary">
+                        <div class="cart">
+                           <img src="../Assets/images/cart.svg" alt="carrito">
+                        </div>
+                        </a>
+                    </li>
                 </ul>
     
             </div>
@@ -66,35 +74,46 @@
     </div>
 
     <div class="contentproducts">
-    <div class="product">
+    <div class="product" data-detail="Este es un producto de alta calidad con características avanzadas para premiar a tu corcel por hacerte ganar 5 likes en tiktok.">
     <section>
          <h3>GALLETAS DE AVENA<BR>PARA CABALLOS</h3>
-         <img src="../Assets/images/Products/cookies.webp" alt="productos" width="100%" height="100%">
-         <p>El manjar que tu corcel nunca pidió, pero que tú insistes en darle. Con un sabor que está justo entre ‘no es pasto’ y ‘esto no huele tan mal’</p>
-         
+         <div class="productimage">
+         <img src="../Assets/images/Products/cookies.webp" class="image">
+         </div>
+         <p>Con un sabor que está justo entre ‘no es pasto’ y ‘esto no huele tan mal’</p>
+         <div class="discount">
+            <p class="discountprice">50%OFF</p>
+         </div>
          <div class="buy">
          <p>$15.500 + IVA</p>
          <a href="./Pages/productos.html">VER MAS</a>
         </div>
     </section>
     </div>
-    <div class="product">
+
+    <div class="product" data-detail="Porque a nadie con dos dedos de frente se le ocurriria capitalizar hobbies.">
         <section>
              <h3>ARMADURA DORADA <br>PARA CABALLOS</h3>
-             <img src="../Assets/images/Products/horsearmor.webp" alt="productos" width="100%" height="100%">
+             <div class="productimage">
+             <img src="../Assets/images/Products/horsearmor.webp" alt="productos" class="image">
+            </div>
              <p>Sin dudas la peor decision de la humanidad desde el rechazo de Blockbuster a Netflix.</p>
-             
+             <div class="discount">
+                <p class="discountprice">20%OFF</p>
+             </div>
              <div class="buy">
              <p>$180.600 + IVA</p>
              <a href="./Pages/productos.html" class="a">VER MAS</a>
              </div>
         </section>
     </div>
-    <div class="product">
+
+    <div class="product" data-detail="Con este shampoo, su melena será la envidia del establo mientras tú sigues lidiando con el frizz en silencio. ¡El lujo que tú no puedes darte, pero él sí!">
         <section>
              <h3>SHAMPOO<br>EQUINO</h3>
-             <img src="../Assets/images/Products/noimgprod.webp" alt="productos" width="100%" height="100%">
-             <p>Dale a tu caballo ese brillo que tú solo sueñas tener con nuestro shampoo. Porque si alguien aquí merece una melena de ensueño, es definitivamente él, no tú.</p>
+             <div class="productimage">
+             <img src="../Assets/images/Products/noimgprod.webp" alt="productos" class="image"></div>
+             <p>Porque si alguien aquí merece una melena de ensueño, es definitivamente él, no tú.</p>
              
              <div class="buy">
              <p>$32.000 + IVA</p>
@@ -102,11 +121,16 @@
              </div>
         </section>
     </div> 
+
     <div class="product">
         <section>
              <h3>MONTURA<BR>PARA CERDOS</h3>
-             <img src="../Assets/images/Products/saddlecraft.webp" alt="productos" width="100%" height="100%">
-             <p>resistente y adecuada para recorridos cortos. Ideal para uso ocasional en el establo o simplemente para dar un paseo lento. No esperes velocidad ni comodidad extra; cumple su función y punto.</p>
+
+             <div class="productimage">
+             <img src="../Assets/images/Products/saddlecraft.webp" alt="productos" class="image">
+             </div>
+
+             <p>resistente y adecuada para recorridos cortos. No esperes velocidad ni comodidad extra; cumple su función y punto.</p>
              
              <div class="buy">
              <p>$15.500 + IVA</p>
@@ -114,10 +138,13 @@
             </div>
         </section>
     </div>
-    <div class="product">
+
+    <div class="product" data-detail="Finalmente, un perro que no ladra, no muerde y jamás te juzga... aunque tampoco te quiere. Este robot perro sigue órdenes, no se roba tu cama y, lo mejor de todo, no necesita visitas al veterinario. Perfecto para quienes aman la idea de un perro, pero no el compromiso.">
             <section>
                  <h3>FR-33<BR>0F L1C3</h3>
-                 <img src="../Assets/images/Products/robodog.webp" alt="productos" width="100%" height="100%">
+                    <div class="productimage">
+                 <img src="../Assets/images/Products/robodog.webp" alt="productos" class="image">
+                    </div>
                  <p>Sin Pulgas, Sin Corazón, Sin Problemas.</p>
                  <div class="buy">
                  <p>$28.600 + IVA</p>
@@ -125,10 +152,15 @@
                  </div>
             </section>
     </div>
+
     <div class="product">
             <section>
                  <h3>SHAMPOO EQUINO</h3>
-                 <img src="../Assets/images/Products/noimgprod.webp" alt="productos" width="100%" height="100%">
+
+                 <div class="productimage">
+                 <img src="../Assets/images/Products/noimgprod.webp" alt="productos" class="image">
+                 </div>
+
                  <p>Dale a tu caballo ese brillo que tú solo sueñas tener con nuestro shampoo. Porque si alguien aquí merece una melena de ensueño, es definitivamente él, no tú. ¡Y con un aroma que hará que los demás en el establo lo envidien!</p>
                  
                  <div class="buy">
@@ -136,11 +168,16 @@
                  <a href="./Pages/productos.html" class="a">VER MAS</a>
                  </div>
             </section>
-    </div> 
+    </div>
+
     <div class="product">
             <section>
                  <h3>GALLETAS DE AVENA<BR>CON PROBIOTICOS</h3>
-                 <img src="../Assets/images/Products/noimgprod.webp" alt="productos" width="100%" height="100%">
+
+                 <div class="productimage">   
+                 <img src="../Assets/images/Products/noimgprod.webp" alt="productos" class="image">
+                 </div>
+
                  <p>El manjar que tu corcel nunca pidió, pero que tú insistes en darle. Con un sabor que está justo entre ‘no es pasto’ y ‘esto no huele tan mal’</p>
                  
                  <div class="buy">
@@ -149,10 +186,15 @@
                 </div>
             </section>
     </div>
+
     <div class="product">
                 <section>
                      <h3>GEL EQUINO FRIO</h3>
-                     <img src="../Assets/images/Products/noimgprod.webp" alt="productos" width="100%" height="100%">
+
+                     <div class="productimage">
+                     <img src="../Assets/images/Products/noimgprod.webp" class="image">
+                     </div>
+
                      <p>Hará que tu caballo se sienta como si nunca hubiera cargado con tus caprichos. Aplicación fácil, alivio rápido, y, lo mejor de todo, es que ahora tu caballo tendrá menos excusas para ignorar tus órdenes.</p>
                      
                      <div class="buy">
@@ -161,10 +203,15 @@
                      </div>
                 </section>
     </div>
+
     <div class="product">
                 <section>
                      <h3>SHAMPOO EQUINO</h3>
-                     <img src="../Assets/images/Products/noimgprod.webp" alt="productos" width="100%" height="100%">
+
+                     <div class="productimage">
+                     <img src="../Assets/images/Products/noimgprod.webp" alt="productos" class="image">
+                     </div>
+
                      <p>Dale a tu caballo ese brillo que tú solo sueñas tener con nuestro shampoo. Porque si alguien aquí merece una melena de ensueño, es definitivamente él, no tú. ¡Y con un aroma que hará que los demás en el establo lo envidien!</p>
                      
                      <div class="buy">
@@ -173,11 +220,13 @@
                      </div>
                 </section>
     </div> 
+
     </div>
 
  </div> <!--Responde a Div Mainbox -->
  <script src="../Scripts/products.js"></script>
  <script src="../Scripts/nav.js"></script>
+ <script src="../Scripts/cartsummary.js"></script>
 </main>
 
 <footer>
