@@ -121,8 +121,29 @@ input:nth-child(n+4){
 }
 
 @media (max-width: 768px) {
+
+.main{
+  display: flex;
+}
+
+.mainbox {
+  margin: 0%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.h2contact{
+width: 90%;
+}
+
   .fieldset {
-    width: 90%;
+    margin: 0%;
+    padding: 0%;
+    width: 100px;
     background-color: rgb(85, 85, 177);
     border-radius: 20px;
     border: 0px;
@@ -145,7 +166,7 @@ input:nth-child(n+4){
   flex-direction: column;
   align-content: space-around;  
   align-items: center;
-  width: auto;
+  width: 350px;
   height: 60px;
   /* background-color: red; */
   /* border: 1px solid; */
@@ -162,7 +183,7 @@ input:nth-child(n+4){
     border: black solid 2px;
     padding: 5px;
     border-radius: 30px;
-    width: 400px;
+    width: 300px;
     height: 80px;
   }
 
