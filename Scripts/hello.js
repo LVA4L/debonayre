@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </p>
           <div class="popup-buttons">
             <a href="./Pages/productos.html" class="popup-button">
-            <img src="../Assets/images/cart.svg" alt="carrito" class="cart">
+            <img src="./Assets/images/cart.svg" alt="carrito" class="cart">
             ¡Vamos a la tienda!
             </a>
             <button id="closePopup" class="popup-button secondary">Nah, seguir aquí.</button>
