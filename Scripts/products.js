@@ -5,64 +5,74 @@ document.addEventListener("DOMContentLoaded", () => {
     const discountedProducts = []; // Lista para productos con descuento
     const nonDiscountedProducts = []; // Lista para productos sin descuento
 
-    products.forEach((product) => {
+    products.forEach((product, index) => {
         const priceElement = product.querySelector(".buy p");
         const discountElement = product.querySelector(".discount p.discountprice");
         const button = product.querySelector(".buy a");
 
-        // Mostrar el nombre del producto en la consola
-        const productName = product.querySelector("h3")?.textContent || "Nombre no encontrado";
+        const productName = product.querySelector("h3")?.textContent || `Producto ${index + 1}`;
+        const productDescription = product.getAttribute("data-detail") || "Descripción no disponible.";
 
         if (priceElement) {
-            // Extraer el precio inicial
             let rawPriceText = priceElement.textContent.match(/\$([\d.]+)/);
             if (rawPriceText) {
-                let basePrice = parseFloat(rawPriceText[1].replace(/\./g, ''));
+                let basePrice = parseFloat(rawPriceText[1].replace(/\./g, "")); // Extraccion Precio base
                 let discountedPrice = basePrice;
-                let ivaAmount;
-                let finalPrice;
+                let discountAmount = 0;
 
                 if (discountElement) {
                     let discountMatch = discountElement.textContent.match(/(\d+)%\s?OFF/i);
                     if (discountMatch) {
                         let discountRate = parseFloat(discountMatch[1]) / 100;
-                        discountedPrice = basePrice * (1 - discountRate);
-                        discountedProducts.push({ productName, basePrice, discountedPrice });
+                        discountAmount = basePrice * discountRate;
+                        discountedPrice = basePrice - discountAmount;
+
+                        discountedProducts.push({
+                            id: index + 1,
+                            name: productName,
+                            description: productDescription,
+                            amount: `$${discountedPrice.toLocaleString()}`,
+                            discount: `-$${discountAmount.toLocaleString()}`,
+                            IVA: `+$${(discountedPrice * IVA_RATE).toLocaleString()}`,
+                            finalPrice: `$${(discountedPrice + discountedPrice * IVA_RATE).toLocaleString()}`
+                        });
                     }
                 } else {
-                    nonDiscountedProducts.push({ productName, basePrice });
+                    nonDiscountedProducts.push({
+                        id: index + 1,
+                        name: productName,
+                        description: productDescription,
+                        amount: `$${basePrice.toLocaleString()}`,
+                        discount: "-",
+                        IVA: `+$${(basePrice * IVA_RATE).toLocaleString()}`,
+                        finalPrice: `$${(basePrice + basePrice * IVA_RATE).toLocaleString()}`
+                    });
                 }
 
-                ivaAmount = discountedPrice * IVA_RATE;
-                finalPrice = discountedPrice + ivaAmount;
+                let ivaAmount = discountedPrice * IVA_RATE;
+                let finalPrice = discountedPrice + ivaAmount;
 
-                // Mostrar en consola el detalle de precios
-                console.log(`Producto: ${productName}`);
-                console.log(`Detalles del precio:
-                    Base: $${basePrice.toLocaleString()}
-                    Descuento: -$${(basePrice - discountedPrice).toLocaleString()}
-                    IVA: $${ivaAmount.toLocaleString()}
-                    Total: $${finalPrice.toLocaleString()}`);
-
-                // Agregar funcionalidad al botón "Ver Más"
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
-                    showPopup(product, basePrice, discountedPrice, ivaAmount, finalPrice);
+                    showPopup(product, basePrice, discountedPrice, discountAmount, ivaAmount, finalPrice);
                 });
             }
         }
     });
 
-    console.log("Productos con descuento:", discountedProducts);
-    console.log("Productos sin descuento:", nonDiscountedProducts);
+    // Mostrar en consola los productos en formato tabla
+    console.log("Productos con descuento:");
+    console.table(discountedProducts);
 
-    function showPopup(product, basePrice, discountedPrice, ivaAmount, finalPrice) {
+    console.log("Productos sin descuento:");
+    console.table(nonDiscountedProducts);
+
+    // Función popup
+    function showPopup(product, basePrice, discountedPrice, discountAmount, ivaAmount, finalPrice) {
         const popup = document.createElement("div");
         popup.classList.add("popup");
 
-        // Extraer información del producto
         const title = product.querySelector("h3")?.textContent || "Producto sin nombre";
-        const briefDescription = product.querySelector("p")?.textContent || "Descripción no disponible.";
         const detailedDescription = product.getAttribute("data-detail") || "No hay detalles adicionales disponibles.";
         const imageSrc = product.querySelector("img")?.src || "";
         const hasDiscount = discountedPrice !== basePrice;
@@ -70,27 +80,33 @@ document.addEventListener("DOMContentLoaded", () => {
         let quantity = 1;
 
         const updatePriceTable = () => {
-            const subtotal = discountedPrice * quantity;
-            const totalIVA = subtotal * IVA_RATE;
-            const totalFinal = subtotal + totalIVA;
+            const subtotal = discountedPrice * quantity; // Precio subtotal según cantidad
+            const totalIVA = subtotal * IVA_RATE; // IVA calculado sobre el subtotal
+            const totalFinal = subtotal + totalIVA; // Precio final con IVA
 
+            // Actualizar los precios en el popup
             popup.querySelector("#subtotal").textContent = `$${subtotal.toLocaleString()}`;
             popup.querySelector("#iva").textContent = `$${totalIVA.toLocaleString()}`;
             popup.querySelector("#total").textContent = `$${totalFinal.toLocaleString()}`;
+
+            // Actualizar el precio inicial y el descuento según la cantidad
+            popup.querySelector(".price-table p:first-child").textContent = `Precio Inicial: $${(basePrice * quantity).toLocaleString()}`;
+            if (hasDiscount) {
+                popup.querySelector(".price-table p:nth-child(2)").textContent = `Descuento: -$${(discountAmount * quantity).toLocaleString()}`;
+            }
         };
 
         popup.innerHTML = `
             <div class="popup-content">
                 <button class="close-popup">&times;</button>
                 <div class="slider">
-                    ${imageSrc ? `<img src="${imageSrc}" alt="${title}" />` : ''}
+                    ${imageSrc ? `<img src="${imageSrc}" alt="${title}" />` : ""}
                 </div>
                 <h2>${title}</h2>
-                <p>${briefDescription}</p>
-                <p> ${detailedDescription}</p>
+                <p>${detailedDescription}</p>
                 <div class="price-table">
                     <p>Precio Inicial: $${basePrice.toLocaleString()}</p>
-                    ${hasDiscount ? `<p>Descuento: -$${(basePrice - discountedPrice).toLocaleString()}</p>` : ''}
+                    ${hasDiscount ? `<p>Descuento: -$${discountAmount.toLocaleString()}</p>` : ""}
                     <p>Subtotal: <span id="subtotal">$${discountedPrice.toLocaleString()}</span></p>
                     <p>IVA (21%): <span id="iva">$${ivaAmount.toLocaleString()}</span></p>
                     <p><strong>PRECIO FINAL: <span id="total">$${finalPrice.toLocaleString()}</span></strong></p>
@@ -110,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const increaseButton = popup.querySelector("#increase");
         const decreaseButton = popup.querySelector("#decrease");
         const quantityDisplay = popup.querySelector("#quantity");
-        const addToCartButton = popup.querySelector(".buy-now");
         const cartMessage = popup.querySelector("#cart-message");
 
         increaseButton.addEventListener("click", () => {
@@ -127,11 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        addToCartButton.addEventListener("click", () => {
+        popup.querySelector(".buy-now").addEventListener("click", () => {
             cartMessage.style.display = "block";
             setTimeout(() => {
                 cartMessage.style.display = "none";
-            }, 5000);
+            }, 3000);
         });
 
         closeButton.addEventListener("click", () => {

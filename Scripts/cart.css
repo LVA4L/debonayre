@@ -1,3 +1,13 @@
+.cart-red-dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
 .cart-popup {
     position: fixed;
     top: 20%;
@@ -96,4 +106,62 @@
 
 .cart-popup-content{
     font-family: "Roboto", sans-serif;
+} 
+
+
+/* 
+================================================
+==----------------QUERY CART------------------==
+================================================
+*/
+
+
+@media (max-width: 768px) {
+    .cart-popup {
+        width: 90%; /* Reducir el ancho del popup en pantallas pequeñas */
+        max-height: 80%; /* Aumentar el alto máximo */
+        padding: 15px; /* Reducir el padding */
+        top: 10%; /* Ajustar la posición superior */
+    }
+
+    .cart-item {
+        flex-direction: column; /* Cambiar la dirección para apilar los elementos */
+        align-items: flex-start; /* Alinear los elementos al inicio */
+    }
+
+    .remove-item {
+        font-size: 1.2rem; /* Reducir el tamaño del texto */
+        padding: 5px 10px; /* Añadir un poco de relleno */
+    }
+
+    .cart-thumbnail {
+        width: 40px; /* Reducir el tamaño de la miniatura */
+        height: 40px; /* Reducir el tamaño de la miniatura */
+        margin-right: 8px; /* Ajustar el margen */
+    }
+
+    .cart-price {
+        text-align: left; /* Alinear el precio a la izquierda */
+    }
+
+    .checkout-button {
+        padding: 8px; /* Reducir el padding */
+        font-size: 1.2rem; /* Reducir el tamaño del texto */
+    }
+
+    .cart-summary p {
+        font-size: 1.5rem; /* Reducir el tamaño de fuente en la parte de resumen */
+    }
+
+    .close-cart-popup {
+        top: 5px;
+        right: 5px;
+        font-size: 18px; /* Reducir el tamaño del ícono de cierre */
+        padding: 5px 8px; /* Añadir padding para mejor interacción táctil */
+    }
+
+    /* Estilo para el contenedor de la lista */
+    .cart-popup-content {
+        font-size: 1rem; /* Reducir el tamaño de fuente */
+    }
 }

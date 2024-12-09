@@ -848,3 +848,86 @@ footer {
         object-fit: cover; 
       }
 
+/* 
+================================================
+==-----------POPUP SUGERENCIA TIENDA----------==
+================================================
+*/
+
+/* Popup Styles */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .popup-container.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 10px;
+    color: #FF7700;
+    font-family: 'Futura-Bold', sans-serif;
+  }
+  
+  .popup-content p {
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Futura Bk BT', sans-serif;
+  }
+  
+  .popup-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  
+  .popup-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    background: #FF7700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Futura-Bold', sans-serif;
+
+  }
+  
+  .popup-button.secondary {
+    background: #555;
+  }
+  
+  .popup-button:hover {
+    background: #FF5500;
+  }
+  
+  .popup-button.secondary:hover {
+    background: #333;
+  }
+  
