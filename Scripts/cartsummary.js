@@ -1,23 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const cart = []; // Lista global para almacenar los productos añadidos al carrito
+    // Recuperar el carrito desde sessionStorage o inicializarlo vacío
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    // Actualizar el sessionStorage con el contenido actual del carrito
+    function updateSessionStorage() {
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+    }
 
     // "Añadir al carrito" desde el botón existente
     document.body.addEventListener("click", (event) => {
         if (event.target && event.target.classList.contains("buy-now")) {
             const popup = event.target.closest(".popup");
             const title = popup.querySelector("h2")?.textContent || "Producto sin nombre";
-            const basePrice = parseFloat(popup.querySelector(".price-table p:first-child").textContent.replace(/\$/, "").replace(/,/g, "")) || 0;
-            const discountedPrice = parseFloat(popup.querySelector("#subtotal").textContent.replace(/\$/, "").replace(/,/g, "")) || basePrice;
-            const priceWithVAT = parseFloat(popup.querySelector("#total").textContent.replace(/\$/, "").replace(/,/g, "")) || discountedPrice * 1.21;
+            const basePrice = parseFloat(popup.querySelector(".price-table p:first-child").textContent.replace(/\$/g, "").replace(/,/g, "")) || 0;
+            const discountedPrice = parseFloat(popup.querySelector("#subtotal").textContent.replace(/\$/g, "").replace(/,/g, "")) || basePrice;
+            const priceWithVAT = parseFloat(popup.querySelector("#total").textContent.replace(/\$/g, "").replace(/,/g, "")) || discountedPrice * 1.21;
             const discount = basePrice - discountedPrice;
             const imageSrc = popup.querySelector(".slider img")?.src || "";
             const quantity = parseInt(popup.querySelector("#quantity").textContent, 10) || 1; // Tomar la cantidad seleccionada
 
-            //  si el producto ya existe en el carrito
+            // Verificar si el producto ya existe en el carrito
             const existingProduct = cart.find((item) => item.title === title);
 
             if (existingProduct) {
-                // incrementar la cantidad si ya tenemos un producto en el carrito.
+                // Incrementar la cantidad si ya tenemos un producto en el carrito
                 existingProduct.quantity += quantity;
             } else {
                 // Si el producto no está en el carrito, añadirlo
@@ -31,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     quantity,
                 });
             }
+
+            // Actualizar sessionStorage
+            updateSessionStorage();
         }
     });
 
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img src="${item.imageSrc}" alt="${item.title}" class="cart-thumbnail">
                 <div class="cart-details">
                     <p><strong>${item.title}</strong></p>
-                    <p>Cantidad: ${item.quantity}</p> <!-- Mostrar la cantidad -->
+                    <p>Cantidad: ${item.quantity}</p>
                 </div>
                 <div class="cart-price">
                     <p>Precio inicial: $${item.basePrice.toLocaleString()}</p>
@@ -64,11 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <hr>`
         ).join("");
 
-        // Calculo de totales sin considerar cantidades por unidad (eso ya esta calculado)
-        const totalInitialPrice = cart.reduce((sum, item) => sum + item.basePrice, 0);
-        const totalDiscount = cart.reduce((sum, item) => sum + item.discount, 0);
-        const totalVAT = cart.reduce((sum, item) => sum + (item.priceWithVAT - item.discountedPrice), 0);
-        const totalFinalPrice = cart.reduce((sum, item) => sum + item.priceWithVAT, 0);
+        // Calculo de totales
+        const totalInitialPrice = cart.reduce((sum, item) => sum + item.basePrice * item.quantity, 0);
+        const totalDiscount = cart.reduce((sum, item) => sum + item.discount * item.quantity, 0);
+        const totalVAT = cart.reduce((sum, item) => sum + (item.priceWithVAT - item.discountedPrice) * item.quantity, 0);
+        const totalFinalPrice = cart.reduce((sum, item) => sum + item.priceWithVAT * item.quantity, 0);
 
         // Agregar contenido 
         cartPopup.innerHTML = `
@@ -103,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const index = parseInt(event.target.getAttribute("data-index"), 10);
                 if (!isNaN(index)) {
                     cart.splice(index, 1);
+                    updateSessionStorage();
                     cartPopup.remove();
                     renderCartPopup();
                 }

@@ -96,10 +96,35 @@ Desarrollado por DG. Mauro L. Argañaraz
 -Mejoras en el sistema de compras para calculo de descuentos y precios con IVA.
 -Mejoras en el sistema de ingreso al Santuario. Ahora se requerirá ingresar mediante una llave obtenida al realizar el contacto con un representante de debonayre.
 
+Known issues:
+
+-Falta de media query en santuario.
+
 ----------0.8.1----------
 
 03-12-24
 
 -Implementado el sistema de carrito en productos.html
+-Se actualizó sistema de carrito en navbar, ahora hay una bandeja disponible solamente en productos.html.
+-La consola ahora mostrará, calculara y clasificará productos con y sin descuento.
 -El carrito ahora hará calculo de productos, con sus descuentos e impuestos, y realizará un calculo final de precio total. 
 -Se comenzó con el sistema de catalogo de productos asistido por hojas de calculo.
+
+Known issues: 
+
+-No está afinado el calculo de precios finales en el carrito. El sumario final toma las unidades por producto ya multiplicadas para multiplicar el precio final nuevamente, generando precios que no coinciden con la suma de productos.
+-Los productos mostrados en el popup de cada producto, no actualizan su informacion de precio inicial y descuento cuando se suman mas unidades. 
+
+----------0.8.2----------
+
+-Los productos realizan correctamente su actualizacion de precio inicial / Descuento / iva / precio final, al incrementar la cantidad de productos a añadir al carrito. 
+-Mejoras en el sistema de carrito dinamico: Ahora el carrito no toma el valor de unidades por producto para realizar el sumario final.
+-Ahora los productos se guardan en sessionstorage.
+-Mensaje de invitacion a la tienda ahora se muestra en index.html
+
+Known issues: 
+
+-La consola no muestra correctamente el formato de tabla de productos al ingresar por primera a la tienda. Hay que presionar F5 para que esta se muestre correctamente. 
+-El carrito no muestra el precio inicial de los productos añadidos, los marca en "0".
+-El carrito no muestra el valor de descuento en "-$0" para productos que no tienen descuento. 
+-El carrito no logra un icono dinamico que indique visualmente si hay productos añadidos en él. 
